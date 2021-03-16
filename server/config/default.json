@@ -1,0 +1,4 @@
+{
+    "jwtSecret": "zx_myJwtSecret",
+    "MONGO_URI" : "mongodb+srv://zeek5678:zeek5678@zeenux.g5qnx.mongodb.net/zeenux?retryWrites=true&w=majority"
+}

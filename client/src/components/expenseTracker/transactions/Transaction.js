@@ -13,7 +13,6 @@ export const Transaction = ({ transaction }) => {
   const ld = transaction.amount;
   const dispatch = useDispatch();
   const sign = transaction.amount < 0 ? "-" : "";
-
   const border = transaction.amount < 0 ? "border-danger" : "border-success";
 
   return !ld ? (
@@ -35,7 +34,7 @@ export const Transaction = ({ transaction }) => {
       <Container>
         <div className="text-secondary mb-1 d-flex justify-content-between">
           {transaction.name}
-          <h6>{moment(transaction.createdAt).fromNow()}</h6>
+          <h6>{moment(transaction.createdAT).fromNow()}</h6>
         </div>
         <div>
           <Button

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://zeenux.herokuapp.com/transactions";
+const url = "https://zeenux.herokuapp.com/api/transactions";
 
 export const fetchTransactions = () => axios(url);
 export const addTransaction = (newTransaction) => axios.post(url, newTransaction);

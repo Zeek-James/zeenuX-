@@ -25,4 +25,6 @@ const TransactionScehma = new mongoose.Schema({
   },
 });
 
+TransactionScehma.set("timestamps", true);
+
 module.exports = mongoose.model("Transaction", TransactionScehma);

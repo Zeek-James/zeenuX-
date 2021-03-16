@@ -42,7 +42,7 @@ export const AddTransaction = () => {
 
   return (
     <div className="m-4 ad">
-      <Button className='rounded-circle mr-5' color="dark" onClick={toggle}>
+      <Button className="rounded-circle mr-5" color="dark" onClick={toggle}>
         <h1>+</h1>
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
@@ -76,7 +76,7 @@ export const AddTransaction = () => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="text">Bank(Optional)</Label>
+              <Label for="text">Bank (Optional)</Label>
               <Input
                 type="text"
                 name="bank"
@@ -89,7 +89,10 @@ export const AddTransaction = () => {
               />
             </FormGroup>
             <FormGroup>
-              <Label for="amount">Amount</Label>
+              <Label for="amount">
+                Amount
+                <br /> (negative - expense, positive - income)
+              </Label>
               <Input
                 type="number"
                 name="amount"

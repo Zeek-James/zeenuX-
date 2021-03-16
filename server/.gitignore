@@ -1,4 +1,5 @@
 node_modules
+default.json
 
 echo "# zeenux" >> README.md
 git init
