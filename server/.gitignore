@@ -8,3 +8,5 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/Zeek-James/zeenux.git
 git push -u origin main
+
+git subtree push --prefix server heroku master
