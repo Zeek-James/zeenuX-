@@ -31,7 +31,10 @@ export default function (state = initialState, action) {
       
 
     case TRANSACTION_ERROR:
-  return action.payload;  
+      return {
+        ...state,
+        error: action.payload
+      }
 
     default:
       return state;

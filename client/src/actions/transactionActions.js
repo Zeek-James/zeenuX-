@@ -3,8 +3,10 @@ import {
   ADD_TRANSACTION,
   DELETE_TRANSACTION,
   GET_TRANSACTIONS,
-  TRANSACTION_ERROR,
+  // TRANSACTION_ERROR,
 } from "./types";
+import { tokenConfig } from "./authAction";
+import { returnErrors } from "./errorAction";
 
 export const getTransactions = () => async (dispatch) => {
   try {
@@ -14,11 +16,11 @@ export const getTransactions = () => async (dispatch) => {
       payload: data.data,
     });
   } catch (err) {
-    console.log(err);
+    dispatch(returnErrors(err.response.data, err.response.status))
   }
 };
 
-export const addTransaction = (transaction) => async (dispatch) => {
+export const addTransaction = (transaction) => async (dispatch, getState) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
@@ -31,24 +33,19 @@ export const addTransaction = (transaction) => async (dispatch) => {
       payload: data.data,
     });
   } catch (err) {
-    dispatch({
-      type: TRANSACTION_ERROR,
-      payload: err.response.data.error,
-    });
+    dispatch(returnErrors(err.response.data, err.response.status))
   }
 };
 
-export const deleteTransaction = (id) => async (dispatch) => {
+export const deleteTransaction = (id) => async (dispatch, getState) => {
   try {
-    await api.deleteTransaction(id);
+    await api.deleteTransaction(id, tokenConfig(getState));
     dispatch({
       type: DELETE_TRANSACTION,
       payload: id,
     });
   } catch (err) {
-    dispatch({
-      type: TRANSACTION_ERROR,
-      payload: console.log(err),
-    });
+    dispatch(returnErrors(err.response.data, err.response.status))
+
   }
 };

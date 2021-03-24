@@ -37,11 +37,7 @@ exports.authUser = async (req, res, next) => {
       user,
     });
   } catch (err) {
-    console.log(err);
-    return res.status(500).json({
-      success: false,
-      error: "Server Error",
-    });
+    console.log(err)
   }
 };
 
